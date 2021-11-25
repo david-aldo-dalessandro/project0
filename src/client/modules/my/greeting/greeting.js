@@ -2,17 +2,8 @@ import { LightningElement, api } from 'lwc';
 
 const greetings = [
     'Hello',
-    'Bonjour',
-    '你好',
-    'Hola',
-    'Привет',
-    'こんにちは',
-    'Guten Tag',
-    'ጤና ይስጥልኝ',
-    'Ciao',
-    'नमस्ते',
-    '안녕하세요',
-    'مرحبا'
+    'こんにちは'
+    
 ];
 const SPEED_CLASS_MAP = {
     slow: 'fade-slow',
