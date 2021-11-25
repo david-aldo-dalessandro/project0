@@ -1,6 +1,15 @@
+/* David D'Alessandro
+* 11/24/21
+* Index JavaScript file for project rendering
+*/
+
+/* eslint-disable @lwc/lwc/no-document-query */
 
 import { createElement } from 'lwc';
-import MyApp from 'my/app';
+import MyDisplay from 'my/display';
 
-const app = createElement('my-app', { is: MyApp });
-document.querySelector('#main').appendChild(app);
+const display = createElement('my-display', { is: MyDisplay });
+document.querySelector('#display').appendChild(display);
+
+
+

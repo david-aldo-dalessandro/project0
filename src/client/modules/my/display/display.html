@@ -1,0 +1,32 @@
+<!-- David D'Alessandro-->
+<!-- 11/25/21 -->
+<!-- This is the main component of the webpage. Here all pages are conditionanlly rendered using a click event.-->
+
+<template>
+
+    <h1>{pageName}</h1>
+
+    <div class="navBar">
+        <my-buttons label='Home' onclick={homeClick}></my-buttons>
+        <my-buttons label='Menu and Cart' onclick={cartClick}></my-buttons>
+        <my-buttons label='Locations' onclick={locClick}></my-buttons>
+        <my-buttons label='About Us' onclick={abtClick}></my-buttons>
+    </div>
+
+    <template if:true={home}>
+        <h2> {centerContentTitle}</h2>
+        <p> {centerContentBlurb}</p>
+    </template>
+
+    <template if:true={cart}>
+    </template>
+
+    <template if:true={loc}>
+    </template>
+
+    <template if:true={abt}>
+        <h2> {centerContentTitle}</h2>
+        <p> {centerContentBlurb}</p>
+    </template>
+
+</template>
