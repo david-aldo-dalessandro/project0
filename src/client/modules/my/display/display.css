@@ -6,4 +6,10 @@ h1{
 .navBar{
     text-align: center;
     background-color: green;
+
+}
+
+img{
+    width: 100px;
+    height: 170px;
 }

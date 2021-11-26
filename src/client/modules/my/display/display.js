@@ -5,6 +5,7 @@
 
 
 import {LightningElement} from 'lwc'
+import { menu } from 'my/cart'
 
 export default class Display extends LightningElement{
 
@@ -18,6 +19,7 @@ export default class Display extends LightningElement{
     pageName = 'Home';
     centerContentTitle ="Hello Customer";
     centerContentBlurb = "Short blurb about Rita's Water Ice";
+    menuItems = menu;
 
     homeClick(){
         this.home = true;
@@ -25,7 +27,7 @@ export default class Display extends LightningElement{
         this.loc = false;
         this.abt = false;
 
-        this.pageName = 'Home';
+        this.pageName = "Home";
         this.centerContentTitle ="Hello Customer";
         this.centerContentBlurb = "Short blurb about Rita's Water Ice";
     }
@@ -37,6 +39,8 @@ export default class Display extends LightningElement{
         this.abt = false;
 
         this.pageName = 'Menu and Cart';
+
+
         
     }
 

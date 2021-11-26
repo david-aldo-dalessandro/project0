@@ -19,6 +19,14 @@
     </template>
 
     <template if:true={cart}>
+
+        <template iterator:it={menuItems}>
+            <span class="info-holder" key={it.value.name}>
+                <p> {it.value.name} - ${it.value.price}</p>
+                <img src={it.value.image}/>
+            </span>
+        </template>
+
     </template>
 
     <template if:true={loc}>
