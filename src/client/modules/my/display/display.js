@@ -21,6 +21,9 @@ export default class Display extends LightningElement{
     centerContentBlurb = "Short blurb about Rita's Water Ice";
     menuItems = menu;
 
+    cartTotal = 0;
+    cartTotalDisp = false;
+
     @track
     cartItems = [];
 
@@ -72,25 +75,25 @@ export default class Display extends LightningElement{
         let a = event.target.getAttribute("class");
         let count = 0;
         let i = 0;
-        console.log(menu[a].index);
 
-        if(this.cartItems.length == 0){
+        if(this.cartItems.length === 0){
             this.cartItems.push(menu[a]);
-            this.cartItems[0].index = 0;
+            this.cartItems[0].cartIndex = 0;
+            this.cartTotal = this.cartItems[0].price;
+            this.cartTotalDisp = true;
         }
         else{
             for(i = 0; i < this.cartItems.length; i++){
-                if(this.cartItems[i].name == menu[a].name){
-                    //this.cartItems.push(menu[a]);
+                if(this.cartItems[i].name === menu[a].name){
                     console.log('comparing ' + this.cartItems[i].name + ' at index ' + i + " with " + menu[a].name);
                     count = 1;
                 }
             }
-            if(count == 0){
+            if(count === 0){
                 this.cartItems.push(menu[a]);
-                console.log(this.cartItems[i].index);
-                this.cartItems[i].index = this.cartItems.length - 1;
-                console.log(this.cartItems[i].index);
+                this.cartItems[i].cartIndex = this.cartItems.length - 1;
+                this.cartTotal += this.cartItems[i].price;
+                
             }
             count = 0
         }
@@ -101,12 +104,37 @@ export default class Display extends LightningElement{
 
     removeItem(event){
         let a = event.target.getAttribute("class");
+        let itemPrice = this.cartItems[a].price;
+        let itemQuant = this.cartItems[a].quantity;
+        this.cartItems[a].quantity = 1;
         this.cartItems.splice(a,1);
         
         for(let i = 0; i < this.cartItems.length; i++){
-            this.cartItems[i].index=i;
+            this.cartItems[i].cartIndex=i;
+            
         }
 
+        this.cartTotal -= itemPrice * itemQuant;
+
+        if(this.cartItems.length === 0){
+            this.cartTotalDisp = false;
+        }
+
+    }
+
+    updateQuantity(event){
+        let a = event.target.getAttribute("class");
+        this.cartItems[a].quantity++;
+        this.cartTotal += this.cartItems[a].price;
+    }
+
+    decreaseQuantity(event){
+        let a = event.target.getAttribute("class");
+    
+        if(this.cartItems[a].quantity > 1){
+            this.cartItems[a].quantity--;
+            this.cartTotal -= this.cartItems[a].price;
+        }
     }
 
 }

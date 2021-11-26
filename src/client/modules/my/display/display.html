@@ -32,9 +32,17 @@
         <div class="cart">
         <template iterator:it={cartItems}>
             <span class="info-holder" key={it.value.name}>
-                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.index} label="remove from cart" onclick={removeItem}></my-buttons></p> 
+                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.cartIndex} label="remove from cart" onclick={removeItem}></my-buttons></p> 
                 <img src={it.value.image}/>
+                <p>
+                    <my-buttons class={it.value.cartIndex} onclick={decreaseQuantity} label="-"> </my-buttons> 
+                    {it.value.quantity}
+                    <my-buttons class={it.value.cartIndex} onclick={updateQuantity} label="+"> </my-buttons>
+                </p>
             </span>
+        </template>
+        <template if:true={cartTotalDisp}>
+        <p> Total = ${cartTotal} </p>
         </template>
         </div>
     </template>
