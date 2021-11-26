@@ -4,7 +4,7 @@
 */
 
 
-import {LightningElement} from 'lwc'
+import {LightningElement, track} from 'lwc'
 import { menu } from 'my/cart'
 
 export default class Display extends LightningElement{
@@ -20,6 +20,9 @@ export default class Display extends LightningElement{
     centerContentTitle ="Hello Customer";
     centerContentBlurb = "Short blurb about Rita's Water Ice";
     menuItems = menu;
+
+    @track
+    cartItems = [];
 
     homeClick(){
         this.home = true;
@@ -40,6 +43,7 @@ export default class Display extends LightningElement{
 
         this.pageName = 'Menu and Cart';
 
+        console.log();
 
         
     }
@@ -64,5 +68,45 @@ export default class Display extends LightningElement{
         this.centerContentBlurb = "History of Rita's";
     }
 
+    addItem(event){
+        let a = event.target.getAttribute("class");
+        let count = 0;
+        let i = 0;
+        console.log(menu[a].index);
+
+        if(this.cartItems.length == 0){
+            this.cartItems.push(menu[a]);
+            this.cartItems[0].index = 0;
+        }
+        else{
+            for(i = 0; i < this.cartItems.length; i++){
+                if(this.cartItems[i].name == menu[a].name){
+                    //this.cartItems.push(menu[a]);
+                    console.log('comparing ' + this.cartItems[i].name + ' at index ' + i + " with " + menu[a].name);
+                    count = 1;
+                }
+            }
+            if(count == 0){
+                this.cartItems.push(menu[a]);
+                console.log(this.cartItems[i].index);
+                this.cartItems[i].index = this.cartItems.length - 1;
+                console.log(this.cartItems[i].index);
+            }
+            count = 0
+        }
+
+        
+        
+    }
+
+    removeItem(event){
+        let a = event.target.getAttribute("class");
+        this.cartItems.splice(a,1);
+        
+        for(let i = 0; i < this.cartItems.length; i++){
+            this.cartItems[i].index=i;
+        }
+
+    }
 
 }

@@ -20,13 +20,23 @@
 
     <template if:true={cart}>
 
+        <div class="menu">
         <template iterator:it={menuItems}>
             <span class="info-holder" key={it.value.name}>
-                <p> {it.value.name} - ${it.value.price}</p>
+                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.index} label="add to cart" onclick={addItem}></my-buttons></p> 
                 <img src={it.value.image}/>
             </span>
         </template>
+        </div>
 
+        <div class="cart">
+        <template iterator:it={cartItems}>
+            <span class="info-holder" key={it.value.name}>
+                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.index} label="remove from cart" onclick={removeItem}></my-buttons></p> 
+                <img src={it.value.image}/>
+            </span>
+        </template>
+        </div>
     </template>
 
     <template if:true={loc}>

@@ -12,4 +12,17 @@ h1{
 img{
     width: 100px;
     height: 170px;
+
+    padding: 15px;
+}
+
+.menu{
+    float: left;
+}
+
+.cart{
+
+    float: right;
+
+    
 }
