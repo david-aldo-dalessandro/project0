@@ -1,0 +1,20 @@
+<!-- David D'Alessandro -->
+<!-- 11/27/21 -->
+<!-- Separate markup for About module. Displays text and iterates over images in JS file-->
+
+<template>
+
+    <section class="abtText">
+        <h2 class="abtText"> {centerContentTitle}</h2>
+         {centerContentBlurb}
+        </section>
+        <section class="abtImages">
+        <h2 class='abtImages'> {secondCenterContentTitle}</h2>
+            <template iterator:it={promisePics}>
+                <span class="info-holder" key={it.value.name}>
+                    <div class="promise"> <img class='promise' id={it.value.index} src={it.value.image} onclick={imageSwap}/>  </div>
+                </span>
+            </template>
+        </section> 
+
+</template>

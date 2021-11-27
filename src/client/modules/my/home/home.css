@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width: 100px;
+    height: 170px;
+
+    padding: 15px;
+}
+
+.coupons{
+    width: 350px;
+    height: 300px;
+    float: left;
+    padding: 50px;
+}
+
+.banner{
+    width: 350px;
+    height: 300px;
+    padding: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.homeText{
+    text-align: center;
+    background-color: rgb(177, 191, 255);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+

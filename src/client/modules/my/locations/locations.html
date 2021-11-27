@@ -1,0 +1,21 @@
+<!-- David D'Alessandro -->
+<!-- 11/27/21 -->
+<!-- Separate markup for Locations module. Displays text and iterates over images in JS file for both the locations and the map-->
+
+
+<template>
+
+    <h2 class="locText"> Click any picture to find where we are on the map!</h2>
+        <template iterator:it={locPics}>
+            <span class="info-holder" key={it.value.name}>
+                <div class="location"> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/>  </div>
+            </span>
+        </template>
+
+        <template iterator:it={mapPic}>
+            <span class="info-holder" key={it.value.name}>
+                <div class="map"> <img class='map' id={it.value.index} src={it.value.image}/>  </div>
+            </span>
+        </template>
+
+</template>

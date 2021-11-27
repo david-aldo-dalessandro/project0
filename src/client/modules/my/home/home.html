@@ -1,0 +1,24 @@
+<!-- David D'Alessandro -->
+<!-- 11/27/21 -->
+<!-- Separate markup for Home module. Displays text and iterates over images in JS file for the single image banner, and the multi image coupons-->
+
+<template>
+
+    <h2 class="homeText"> {centerContentTitle}</h2>
+    <p class="homeText"> {centerContentBlurb}  </br> <my-buttons label='Click for daily coupons!' onclick={couponFlip}></my-buttons>  </p>
+
+    <template iterator:it={bannerPics}>
+        <span class="info-holder" key={it.value.name}>
+            <div > <img class='banner' id={it.value.index} src={it.value.image}/>  </div>
+        </span>
+    </template>
+
+    <template if:true={couponReveal}>
+     <template iterator:it={couponPics}>
+        <span class="info-holder" key={it.value.name}>
+            <div > <img class='coupons' id={it.value.index} src={it.value.image}/>  </div>
+        </span>
+     </template>
+    </template>
+
+</template>

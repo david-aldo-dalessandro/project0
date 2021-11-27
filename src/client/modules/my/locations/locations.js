@@ -1,17 +1,58 @@
 /* David D'Alessandro
-* 11/26/21 
-* JS file to contain variables and functions to export the images for the locations
+* 11/27/21
+* Separate JS file for the Location module. Handles text placement, as well as the image swapping function for onclick events
 */
 
-const locs = [
-    {name: "South Ocean City, Maryland", image: "./resources/locPics/ritasSOC.jpg", image2: "./resources/locPics/ritasSOCFLIP.jpg", index: 0, flip: 'no'},
-    {name: "Rehoboth Beach, Delaware", image: "./resources/locPics/ritasDE.jpg",  image2: "./resources/locPics/ritasDEFLIP.jpg", index: 2, flip: 'no'},
-    {name: "North Ocean City, Maryland", image: "./resources/locPics/ritasNOC.jpg",  image2: "./resources/locPics/ritasNOCFLIP.jpg", index: 1, flip: 'no'}
-    
-]
+import { LightningElement, track} from 'lwc'
+import {locs, map} from './locationSpots'
 
-const map =[
-    {name: "Map", imageDef: "./resources/locPics/mapBlank.PNG", image: "./resources/locPics/mapBlank.PNG", image2: "./resources/locPics/mapPin1.PNG", image3: "./resources/locPics/mapPin2.PNG", image4: "./resources/locPics/mapPin3.PNG",index: 0},
+export default class Locations extends LightningElement{
+    @track
+    locPics = [...locs];
+    @track
+    mapPic = [...map];
 
-]
-export { locs, map } ;
+    imageMap(event){
+        let a = event.target.getAttribute("id");
+        let currentMap = 0;
+        for(let i = 0; i < this.locPics.length; i++){
+            if(this.locPics[i].index == a && this.locPics[i].flip === 'no' ){
+                let tempImage1 = this.locPics[i].image;
+                let tempImage2 = this.locPics[i].image2;
+        
+                this.locPics[i].image = tempImage2;
+                this.locPics[i].image2 = tempImage1;
+
+                this.locPics[i].flip = 'yes'
+                currentMap = i+1;
+            }
+            else if(this.locPics[i].flip === 'yes'){
+                let tempImage1 = this.locPics[i].image;
+                let tempImage2 = this.locPics[i].image2;
+        
+                this.locPics[i].image = tempImage2;
+                this.locPics[i].image2 = tempImage1;
+
+                this.locPics[i].flip = 'no'
+            }
+
+            
+            
+            switch(currentMap){
+                case 1:
+                    this.mapPic[0].image = this.mapPic[0].image2;
+                    break;
+                case 2:
+                    this.mapPic[0].image = this.mapPic[0].image3;
+                     break;
+                case 3:
+                    this.mapPic[0].image = this.mapPic[0].image4;
+                    break;
+                default:
+                    this.mapPic[0].image = this.mapPic[0].imageDef;
+            }
+            
+        }
+
+    }
+}

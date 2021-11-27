@@ -1,0 +1,33 @@
+<!-- David D'Alessandro -->
+<!-- 11/27/21 -->
+<!-- Separate markup for Cart module. Displays text, the menu, and the cart when activated. Iterates over images in JS file for both the menu and cart-->
+
+<template>
+
+<div class="menu">
+    <template iterator:it={menuItems}>
+        <span class="info-holder" key={it.value.name}>
+            <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.index} label="add to cart" onclick={addItem}></my-buttons></p> 
+            <img src={it.value.image}/>
+        </span>
+    </template>
+    </div>
+
+    <div class="cart">
+    <template iterator:it={cartItems}>
+        <span class="info-holder" key={it.value.name}>
+            <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.cartIndex} label="remove from cart" onclick={removeItem}></my-buttons></p> 
+            <img src={it.value.image}/>
+            <p>
+                <my-buttons class={it.value.cartIndex} onclick={decreaseQuantity} label="-"> </my-buttons> 
+                {it.value.quantity}
+                <my-buttons class={it.value.cartIndex} onclick={updateQuantity} label="+"> </my-buttons>
+            </p>
+        </span>
+    </template>
+    <template if:true={cartTotalDisp}>
+    <p> Total = ${cartTotal} </p>
+    </template>
+    </div>
+
+</template>

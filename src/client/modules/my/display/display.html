@@ -14,84 +14,19 @@
     </div>
 
     <template if:true={home}>
-        <h2 class="homeText"> {centerContentTitle}</h2>
-        <p class="homeText"> {centerContentBlurb}  </br> <my-buttons label='Click for daily coupons!' onclick={couponFlip}></my-buttons>  </p>
-
-        <template iterator:it={bannerPics}>
-            <span class="info-holder" key={it.value.name}>
-                <div > <img class='banner' id={it.value.index} src={it.value.image}/>  </div>
-            </span>
-        </template>
-
-        <template if:true={couponReveal}>
-         <template iterator:it={couponPics}>
-            <span class="info-holder" key={it.value.name}>
-                <div > <img class='coupons' id={it.value.index} src={it.value.image}/>  </div>
-            </span>
-         </template>
-        </template>
+       <my-home></my-home>
     </template>
 
     <template if:true={cart}>
-
-        <div class="menu">
-        <template iterator:it={menuItems}>
-            <span class="info-holder" key={it.value.name}>
-                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.index} label="add to cart" onclick={addItem}></my-buttons></p> 
-                <img src={it.value.image}/>
-            </span>
-        </template>
-        </div>
-
-        <div class="cart">
-        <template iterator:it={cartItems}>
-            <span class="info-holder" key={it.value.name}>
-                <p> {it.value.name} - ${it.value.price} <my-buttons class={it.value.cartIndex} label="remove from cart" onclick={removeItem}></my-buttons></p> 
-                <img src={it.value.image}/>
-                <p>
-                    <my-buttons class={it.value.cartIndex} onclick={decreaseQuantity} label="-"> </my-buttons> 
-                    {it.value.quantity}
-                    <my-buttons class={it.value.cartIndex} onclick={updateQuantity} label="+"> </my-buttons>
-                </p>
-            </span>
-        </template>
-        <template if:true={cartTotalDisp}>
-        <p> Total = ${cartTotal} </p>
-        </template>
-        </div>
+        <my-cart></my-cart>
     </template>
 
     <template if:true={loc}>
-
-        <h2 class="locText"> Click any picture to find where we are on the map!</h2>
-        <template iterator:it={locPics}>
-            <span class="info-holder" key={it.value.name}>
-                <div class="location"> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/>  </div>
-            </span>
-        </template>
-
-        <template iterator:it={mapPic}>
-            <span class="info-holder" key={it.value.name}>
-                <div class="map"> <img class='map' id={it.value.index} src={it.value.image}/>  </div>
-            </span>
-        </template>
-
+        <my-locations></my-locations>
     </template>
 
     <template if:true={abt}>
-        <section class="abtText">
-        <h2 class="abtText"> {centerContentTitle}</h2>
-         {centerContentBlurb}
-        </section>
-        <section class="abtImages">
-        <h2 class='abtImages'> {secondCenterContentTitle}</h2>
-            <template iterator:it={promisePics}>
-                <span class="info-holder" key={it.value.name}>
-                    <div class="promise"> <img class='promise' id={it.value.index} src={it.value.image} onclick={imageSwap}/>  </div>
-                </span>
-            </template>
-        </section> 
-
+        <my-about></my-about>
     </template>
 
 </template>

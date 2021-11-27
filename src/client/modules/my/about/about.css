@@ -1,0 +1,38 @@
+h1{
+    text-align: center;
+    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width: 100px;
+    height: 170px;
+
+    padding: 15px;
+}
+
+.promise{
+    width: 346px;
+    height: 357px;
+    float: left;
+    padding: 50px;
+}
+
+.abtText{
+    text-align: center;
+    background-color: rgb(177, 191, 255);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.abtImages{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+

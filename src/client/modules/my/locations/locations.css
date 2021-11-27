@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width: 100px;
+    height: 170px;
+
+    padding: 15px;
+}
+
+.locText{
+    text-align: center;
+    background-color: rgb(177, 191, 255);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.location{
+    width: 200px;
+    height: 180px;
+    padding: 50px;
+    float: left;
+    display: block;
+    margin-left: 150px;
+    margin-right: auto;
+}
+.map{
+    width: 400px;
+    height: 470px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
