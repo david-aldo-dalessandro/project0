@@ -14,8 +14,22 @@
     </div>
 
     <template if:true={home}>
-        <h2> {centerContentTitle}</h2>
-        <p> {centerContentBlurb}</p>
+        <h2 class="homeText"> {centerContentTitle}</h2>
+        <p class="homeText"> {centerContentBlurb}  </br> <my-buttons label='Click for daily coupons!' onclick={couponFlip}></my-buttons>  </p>
+
+        <template iterator:it={bannerPics}>
+            <span class="info-holder" key={it.value.name}>
+                <div > <img class='banner' id={it.value.index} src={it.value.image}/>  </div>
+            </span>
+        </template>
+
+        <template if:true={couponReveal}>
+         <template iterator:it={couponPics}>
+            <span class="info-holder" key={it.value.name}>
+                <div > <img class='coupons' id={it.value.index} src={it.value.image}/>  </div>
+            </span>
+         </template>
+        </template>
     </template>
 
     <template if:true={cart}>
@@ -52,9 +66,7 @@
         <h2 class="locText"> Click any picture to find where we are on the map!</h2>
         <template iterator:it={locPics}>
             <span class="info-holder" key={it.value.name}>
-                
                 <div class="location"> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/>  </div>
-                
             </span>
         </template>
 
@@ -68,8 +80,8 @@
 
     <template if:true={abt}>
         <section class="abtText">
-        <h2> {centerContentTitle}</h2>
-        <p> {centerContentBlurb}</p>
+        <h2 class="abtText"> {centerContentTitle}</h2>
+         {centerContentBlurb}
         </section>
         <section class="abtImages">
         <h2 class='abtImages'> {secondCenterContentTitle}</h2>

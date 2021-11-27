@@ -8,6 +8,7 @@ import {LightningElement, track} from 'lwc'
 import { menu } from 'my/cart'
 import { promise } from 'my/promise'
 import { locs, map } from 'my/locations'
+import { coupons, banner } from 'my/coupons'
 
 export default class Display extends LightningElement{
 
@@ -20,11 +21,12 @@ export default class Display extends LightningElement{
     //declare all pages variables and assign initasl values for homepage
     pageName = 'Home';
     centerContentTitle ="Hello Customer";
-    centerContentBlurb = "Short blurb about Rita's Water Ice";
+    centerContentBlurb = "Welcome to the East Coast's sweetest treat! Please enjoy our monthly special and check our daily coupons!";
     menuItems = menu;
 
     cartTotal = 0;
     cartTotalDisp = false;
+    couponReveal = false;
 
     @track
     cartItems = [];
@@ -34,6 +36,9 @@ export default class Display extends LightningElement{
     locPics = [...locs];
     @track
     mapPic = [...map];
+
+    couponPics = [...coupons];
+    bannerPics = [...banner];
 
     
 
@@ -78,6 +83,10 @@ export default class Display extends LightningElement{
         this.centerContentTitle ="Ice + Custard = Happiness";
         this.centerContentBlurb = "At Rita’s, “Ice Custard Happiness” is our way of life. We’re passionate about delivering super-friendly guest service and providing our guests with a cool, smooth, delightfully happy treat experience. If you’re looking to build memories, celebrate special moments, mark traditions, or simply need a pick-me-up, our fresh, tasty treats are guaranteed to do the trick. The best part? We take great pride in serving them to our community—and always with a side of happy.";
         this.secondCenterContentTitle = "Click on us for our promises to you!!";
+    }
+
+    couponFlip(){
+        this.couponReveal = !this.couponReveal ;
     }
 
     addItem(event){

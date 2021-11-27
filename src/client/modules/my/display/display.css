@@ -1,11 +1,17 @@
 h1{
     text-align: center;
     background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .navBar{
     text-align: center;
     background-color: green;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -23,15 +29,35 @@ img{
     padding: 50px;
 }
 
-.locText, .abtText{
+.coupons{
+    width: 350px;
+    height: 300px;
+    float: left;
+    padding: 50px;
+}
+
+.banner{
+    width: 350px;
+    height: 300px;
+    padding: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.homeText, .locText, .abtText{
     text-align: center;
     background-color: rgb(177, 191, 255);
+    width: 100%;
+    margin: 0;
     padding: 0;
 }
 
 .abtImages{
     text-align: center;
-    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .location{
