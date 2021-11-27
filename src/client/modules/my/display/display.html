@@ -48,11 +48,38 @@
     </template>
 
     <template if:true={loc}>
+
+        <h2 class="locText"> Click any picture to find where we are on the map!</h2>
+        <template iterator:it={locPics}>
+            <span class="info-holder" key={it.value.name}>
+                
+                <div class="location"> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/>  </div>
+                
+            </span>
+        </template>
+
+        <template iterator:it={mapPic}>
+            <span class="info-holder" key={it.value.name}>
+                <div class="map"> <img class='map' id={it.value.index} src={it.value.image}/>  </div>
+            </span>
+        </template>
+
     </template>
 
     <template if:true={abt}>
+        <section class="abtText">
         <h2> {centerContentTitle}</h2>
         <p> {centerContentBlurb}</p>
+        </section>
+        <section class="abtImages">
+        <h2 class='abtImages'> {secondCenterContentTitle}</h2>
+            <template iterator:it={promisePics}>
+                <span class="info-holder" key={it.value.name}>
+                    <div class="promise"> <img class='promise' id={it.value.index} src={it.value.image} onclick={imageSwap}/>  </div>
+                </span>
+            </template>
+        </section> 
+
     </template>
 
 </template>

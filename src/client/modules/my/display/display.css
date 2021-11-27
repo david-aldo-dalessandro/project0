@@ -16,6 +16,42 @@ img{
     padding: 15px;
 }
 
+.promise{
+    width: 346px;
+    height: 357px;
+    float: left;
+    padding: 50px;
+}
+
+.locText, .abtText{
+    text-align: center;
+    background-color: rgb(177, 191, 255);
+    padding: 0;
+}
+
+.abtImages{
+    text-align: center;
+    background-color: red;
+}
+
+.location{
+    width: 200px;
+    height: 180px;
+    padding: 50px;
+    float: left;
+    display: block;
+    margin-left: 150px;
+    margin-right: auto;
+}
+.map{
+    width: 400px;
+    height: 470px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
 .menu{
     float: left;
 }
