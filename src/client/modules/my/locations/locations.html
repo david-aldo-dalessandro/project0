@@ -8,7 +8,11 @@
     <h2 class="locText"> Click any picture to find where we are on the map!</h2>
         <template iterator:it={locPics}>
             <span class="info-holder" key={it.value.name}>
-                <div class="location"> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/>  </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                      <span> <img class='location' id={it.value.index} src={it.value.image} onclick={imageMap}/></span>
+                    </div>
+                  </div>
             </span>
         </template>
 
@@ -18,4 +22,9 @@
             </span>
         </template>
 
+        
+
 </template>
+
+
+
